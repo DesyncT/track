@@ -51,7 +51,7 @@ def catch_all(event, data):
             "embeds": [embed]
         }
 
-        requests.post("https://discord.com/api/webhooks/1372751321706401862/-zrD2l-a9kRpXPZ-gwGgai1KcPFY6gxQ9fMeyKnj3cEEVobrtpv__htwjeetVaN8_65Q", json=payload)
+        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
     if event == "game_created":
         value = 0
         itemlist = ""
@@ -83,7 +83,7 @@ def catch_all(event, data):
             "embeds": [embed]
         }
 
-        requests.post("https://discord.com/api/webhooks/1372753273819496518/6shs5ECrv4qzt2teXXuQLR3G_XI2IGSJd5pkd-ikjn3_CEj2wMFGXfUrADiXu97wgNhB", json=payload)
+        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
     if event == "game_updated":
         startervalue = 0
         starteritems = ""
@@ -135,12 +135,12 @@ def catch_all(event, data):
             "embeds": [embed]
         }
 
-        requests.post("https://discord.com/api/webhooks/1372755278923173989/4IOiKRaUrGHA5GsbVNnILsGeFSSVak1g3s57pONb_P4EiVqeshwTtEucWknJShTU8tkc", json=payload)
+        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
 
 sio.connect(
     "https://api.bloxybet.com",
     headers=headers,
-    transports=["polling", "websocket"],
+    transports=["websocket"],
     socketio_path="/socket.io"
 )
 
