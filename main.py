@@ -51,7 +51,7 @@ def catch_all(event, data):
             "embeds": [embed]
         }
 
-        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
+        requests.post("https://discord.com/api/webhooks/1378537059609874472/tYedgfzoQwbG14yokj5K3cn3yQBd8fC0my87QbCnZkxzuhHkWYShNx_oWXZtP6IvcizV", json=payload)
     if event == "game_created":
         value = 0
         itemlist = ""
