@@ -47,95 +47,10 @@ def catch_all(event, data):
 
         payload = {
             "username": "tips",
-            "content": "<@&1372756572803170385>",
             "embeds": [embed]
         }
 
         requests.post("https://discord.com/api/webhooks/1378537059609874472/tYedgfzoQwbG14yokj5K3cn3yQBd8fC0my87QbCnZkxzuhHkWYShNx_oWXZtP6IvcizV", json=payload)
-    if event == "game_created":
-        value = 0
-        itemlist = ""
-        mentions = ""
-        if value > 5000:
-            mentions += "<@&1372756426509779074> "
-        if value > 10000:
-            mentions += "<@&1372756476820721816> "
-        if value > 20000:
-            mentions += "<@&1372756516117020702> "
-
-        for i in data['starter']['items']:
-            itemlist += f"{i['display_name']} ({i['value']})\n"
-            value += int(i['value'])
-
-        embed = {
-            "title": "game creation | alert",
-            "description": f"A game of **{value}** was created",
-            "color": 0x0cfc94,
-            "fields": [
-                {"name": f"Starter Items ({value})", "value": f"```{itemlist}```", "inline": False},
-                {"name": "Starter", "value": f"```{data['starter']['username']}```", "inline": False},
-            ],
-        }
-
-        payload = {
-            "username": "games",
-            "content": mentions,
-            "embeds": [embed]
-        }
-
-        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
-    if event == "game_updated":
-        startervalue = 0
-        starteritems = ""
-
-        joinervalue = 0
-        joineritems = ""
-
-        
-
-        mentions = " "
-        
-
-        for i in data['starter']['items']:
-            starteritems += f"{i['display_name']} ({i['value']})\n"
-            startervalue += int(i['value'])
-
-        for i in data['joiner']['items']:
-            joineritems += f"{i['display_name']} ({i['value']})\n"
-            joinervalue += int(i['value'])
-        total = joinervalue + startervalue
-        if total > 5000:
-            mentions += "<@&1372756426509779074> "
-        if total > 10000:
-            mentions += "<@&1372756476820721816> "
-        if total > 20000:
-            mentions += "<@&1372756516117020702> "
-        if data['winner'] == data['starter']['side']:
-            winner = data['starter']['username']
-            loser = data['joiner']['username']
-        else:
-            loser = data['starter']['username']
-            winner = data['joiner']['username']
-
-        embed = {
-            "title": "game played | alert",
-            "description": f"A game of **{total}** was just played",
-            "color": 0x0cfc94,
-            "fields": [
-                {"name": f"Starter Items ({startervalue})", "value": f"```{starteritems}```", "inline": False},
-                {"name":f"Joiner Items ({joinervalue})", "value": f"```{joineritems}```", "inline": False},
-                {"name":f"Winner", "value": f"```{winner}```", "inline": False},
-                {"name":f"loser", "value": f"```{loser}```", "inline": False}
-            ],
-        }
-
-        payload = {
-            "username": "games",
-            "content": mentions,
-            "embeds": [embed]
-        }
-
-        requests.post("https://discord.com/api/webhooks/1373462186302898368/bCkpfpvPa29-Y_bbSvM7Kl7xE7WVqDKYa93Z1yYrz0E3SuZ7D1iABVdV7J0hEDp4zV81", json=payload)
 
 sio.connect(
     "https://api.bloxybet.com",
